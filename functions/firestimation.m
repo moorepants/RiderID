@@ -3,7 +3,7 @@ function fir = firestimation(dat)
     % Settings
     m1 = -2^9+2^8; % tau_min samples
     m2 =  2^9+2^8; % tau_max samples
-    wn =  0.1; % Nyquist normalized datter factor
+    wn =  0.05; % Nyquist normalized datter factor
 
     % FIR finite impulse response function g(tau)
     N = size(dat.y,2);
@@ -37,13 +37,5 @@ function fir = firestimation(dat)
     fir.g_raw = g_raw;
     fir.g = g;
     fir.legend = {'g_\phi','g_\delta'};
-
-    
-%     % ARX model generation
-%     A(1:2,1:2,1) = eye(2);
-%     B = zeros(2,1,fir.m);
-%     B(1,1,:) = fir.g(fir.m+2:end,1); B(2,1,:) = fir.g(fir.m+2:end,2);
-%     fir.arx = idarx(A,B,1/dat.Fs);
-%     % fir.frd = idfrd(fir.arx);
     
 end
