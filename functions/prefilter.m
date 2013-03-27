@@ -7,7 +7,7 @@ function dat = prefilter(raw)
 % Parameters
 % ----------
 % raw : structure
-%   The data structure generated from `davisdat`.
+%   The data structure generated from `davisdat.m`.
 %
 % Returns
 % -------
@@ -15,6 +15,10 @@ function dat = prefilter(raw)
 %   The filtered and truncated data.
 %   filename : string
 %       The path to the original data file.
+%   Fs : double, 1 x 1
+%       The sample rate in hertz.
+%   v : double, 1 x 1
+%       The average speed over the duration of the run.
 %   t : double, n x 1
 %       The time vector.
 %   y : double, n x 2

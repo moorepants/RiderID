@@ -1,4 +1,5 @@
 function fir = firestimation(dat)
+% function fir = firestimation(dat)
 
     % Settings
     m1 = -2^9+2^8; % tau_min samples
@@ -37,5 +38,4 @@ function fir = firestimation(dat)
     fir.g_raw = g_raw;
     fir.g = g;
     fir.legend = {'g_\phi','g_\delta'};
-    
 end

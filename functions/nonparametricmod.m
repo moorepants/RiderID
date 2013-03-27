@@ -1,4 +1,23 @@
 function  [npm,dat] = nonparametricmod(dat,set)
+% function  [npm,dat] = nonparametricmod(dat,set)
+%
+% Parameters
+% ----------
+% dat : structure
+%   The prefiltered data from `prefilter.m`.
+% set : structure
+%   The settings from `settings.m`.
+%
+% Returns
+% -------
+% npm : structure
+%   The non-parametric response results.
+%   N : double, 1 x 1
+%       The number of samples.
+%   m : double, 1 x 1
+%
+%
+% dat
 
 t = dat.t;
 f = linspace(-1,1,set.N)'*set.Fs/2;
@@ -22,12 +41,9 @@ end
 v = dat.y-y; % Remnant
 V = fftshift(1/sqrt(set.N)*fft(v),1); % FFT(v(t))
 
-
 Svv_raw = conj(V).*V;
 m = 2^3+1; 
 Svv = freqwinavg(Svv_raw,f,m);
-
-    
 
 % Digital bandpass filter
 L = zeros(size(y));
