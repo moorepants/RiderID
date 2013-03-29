@@ -75,11 +75,7 @@
             delta = npm.y(:,2);
 
             mod(j).vaf = vaf(delta,delta_mod);
-            
-            % Sensitivities
-            mod(j).sym = symsens(mod(j));
-            mod(j).sen = sensitivity(mod(j).sym,npm,mod(j));
-            
+                        
         end
     end        
 end
@@ -109,18 +105,3 @@ function en = errorfunc(thetan,X0,e0,npm,j,mod,dat)
     en = e/e0;
     disp(sum(en.^2));
 end
-
-
-
-% % Error definition
-% function en = errorfunc(thetan,X0,e0,npm,i,mod,dat)
-%     Xn = zeros(size(X0)); Xn(logical(X0)) = thetan;
-%     X = Xn.*X0; % Renormalizing
-%     mod = riderfunc(X,tf('s'),i,mod); % X,s,i,mod
-%     u = zeros(size(npm.t(1:npm.m))); u(1) = 1/(npm.t(2)-npm.t(1));
-%     ghat = lsim(mod.y,u,npm.t(1:npm.m));
-%     g = npm.g(1:npm.m,:);
-%     e = 1/npm.N*(g(:,2) - ghat(:,2));
-%     en = e/e0;
-%     disp(sum(en.^2));
-% end
