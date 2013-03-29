@@ -1,5 +1,14 @@
 function fir = firestimation(dat)
 % function fir = firestimation(dat)
+%
+% Returns the Finite Impuluse Response (FIR) from time domain data.
+% 
+% Input:
+% - dat; structure which contains the time domain data of a measurement.
+%
+% Output:
+% - fir; structure which contains the fir response data of a measurements.
+%
 
     % Settings
     m1 = -2^9+2^8; % tau_min samples
@@ -13,11 +22,6 @@ function fir = firestimation(dat)
     DeltaT = 1./dat.Fs;
     tau = DeltaT*(m1:m2)';
     M = length(tau);
-
-    % FIR windowing
-    shift = 2^6; 
-    win = zeros(size(tau)); win(tau>0) = 1; win(end-shift:end) = 0;
-    win((m2+1:end)-shift) = 1/2*(1+cos((0:-m1)*pi/(-m1)));
 
     % datter parameters
     [b, a] = butter(4,wn);
@@ -34,8 +38,8 @@ function fir = firestimation(dat)
     fir.m1 = m1;
     fir.m2 = m2;
     fir.tau = tau;
-    fir.win = win;
     fir.g_raw = g_raw;
     fir.g = g;
     fir.legend = {'g_\phi','g_\delta'};
+
 end

@@ -1,4 +1,15 @@
 function mod = parameters(filename,mod)
+% function mod = parameters(filename,mod)
+%
+% Updates model structure (mod) with initial parameter conditions.
+%
+% Inputs:
+% - filename; string with name of measurements file, e.g. ´00123.mat´ 
+% - mod; structure which contains model related parameters.
+%
+% Output:
+% - mod; same model structure which now also contains initial parameters
+%
 
 switch filename;
     case '00184.mat';

@@ -1,5 +1,18 @@
 function fig = firfig(npm,dat,i)
-
+% function fig = firfig(npm,dat,i)
+% 
+% Returns a FIR figure 
+% 
+% Parameters
+% ----------
+% npm ; structure with nonparametric data
+% dat ; structure with time domain data
+% i   ; integer measurement number
+%
+% Returns
+% -------
+% fig ; handle to figure object
+%
 
     g = npm.g(1:npm.m-2^8,:);
     g_raw = npm.g_raw(1:npm.m-2^8,:);

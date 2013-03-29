@@ -1,13 +1,25 @@
 function fig = firmodfig(npm,mod,dat,i,j)
+% function fig = firmodfig(npm,mod,dat,i,j)
+%
+% Returns a FIR figure which shows the nonparametric and parametric response 
+%
+% Parameters
+% ---------
+% npm : structure with non parametric data
+% mod : structure with parametric model data
+% dat : structure with time domain data
+% i   : integer measurement number
+% j   : parametric model number 
+% 
+% Returns
+% ------
+% figure handle to FIR figure object
+% 
 
-    
     mod = mod{1};
-    
 
     g = npm.g(1:npm.m-2^8,:);
     g_raw = npm.g_raw(1:npm.m-2^8,:);
-   
-    
     
     tau = npm.t(1:npm.m-2^8);
     

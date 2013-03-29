@@ -52,51 +52,10 @@ function fig = covfig(mod,sat,i,k)
     set(gca,'XTick',(1:length(mod(k).X))');
         set(gca,'YTick',(1:length(mod(k).X))');
 
-%     set(gca,'XTickLabel',Xlegend)
 
     sdf('LatexSmall'); xlabel('i'); ylabel('j');
 
-%            pos = get(h,'Position'); pos(3) = pos(3)/10;
-%         set(h,'Position',pos);
     fig.hf = gcf;
 
 end
 
-
-% function NMDmacdiagram(X1,X2,M,neig,ylab)
-% % function FEM_MACdiagram(X1,X2,M,neig);
-% % 
-% % MAC diagram 
-% %
-% % Inputs:
-% %  X1   : set of eigenvectors
-% %  X2   : set of eigenvectors
-% %  M    : Mass matrix
-% %  neig : number of eigenmodes
-% 
-% 
-% if neig < 20
-%     p = neig;
-% elseif neig >= 20;
-%     p = 20;
-% end
-%     
-% Mac = X2(:,1:p)'*M*X1(:,1:p);
-% 
-% cla; hold on; box on;
-% 
-% for i = 1:p
-%     for j = 1:p
-%         A = abs(Mac(i,j));
-%         s = (A);
-%         xx = [i-s/2 i-s/2 i+s/2 i+s/2 i-s/2];
-%         yy = [j-s/2 j+s/2 j+s/2 j-s/2 j-s/2];
-%         patch(xx,yy,A);
-%         plot(xx,yy,'k');
-%     end
-% end
-% 
-% axis equal; axis([0 p+1 0 p+1]); axis ij; grid off;
-% colorbar; caxis([0 1]); colormap(flipud(bone));
-% title('MAC diagram'); xlabel('Reference values'); ylabel(ylab);
-% sdf('Latex');
