@@ -1,4 +1,25 @@
 function fig = modfig(npm,dat,mod,set,i,j,T)
+% function fig = modfig(npm,dat,mod,set,i,j,T)
+%
+% Returns a figure with both nonparametric and parameteric
+% time results.
+%
+% Parameters
+% ----------
+% npm ; structure with nonparametric data
+% dat ; structure with time domain data
+% mod ; structure with parametric model data
+% set ; structure with measurement settings
+% i ; integer 1 x 1, measurement number
+% j ; integer 1 x 1, parametric model number
+% T ; double 2 x 1, time span [T_start, T_end]
+%
+% Returns
+% -------
+% fig ; handle to figure object
+%
+
+
 
     if isnan(T);
         T = [dat.t(1) dat.t(end)];
@@ -6,12 +27,7 @@ function fig = modfig(npm,dat,mod,set,i,j,T)
     end
 
     mod = mod{1};
-
-%     M = length(mod);
-%     delta_mod = zeros(dat.N,M);
-%     for j = 1:5
-        delta_mod = lsim(mod(j).y(1),dat.w,dat.t);
-%     end
+    delta_mod = lsim(mod(j).y(1),dat.w,dat.t);
 
     models = (['G' num2str(j) '_\delta(q,\theta)w(t)']);
     

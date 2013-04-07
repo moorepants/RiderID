@@ -1,5 +1,43 @@
- function [mod] = parametricmod(npm,dat,set)
-% Script for parametric fitting on the impulse response data.
+function [mod] = parametricmod(npm,dat,set)
+% function [mod] = parametricmod(npm,dat,set)
+% 
+% Script for parametric fitting the impulse response data.
+%
+% Parameters
+% ----------
+% npm : structure with non parametric model data, see nonparametricmod.m
+% dat : structure with measurement data, see davisdat.m and prefilter.m
+% set : structure with measurement settings, see settings.m
+%
+% Returns
+% -------
+% mod : Structure
+%   Structure containing parametric model data:
+%   G  : Structure
+%        Contains the bicycle transfer function objects
+%   X  : double, 8 x 1
+%        Model parameters; k_phi, k_phidd, k_delta, etc.
+%   X0 : double, 8 x 1
+%        Initial model parameters
+%   sem : double, 8 x 1
+%        Standard Error of the Mean 
+%   covP : double, 8 x 8
+%        Parameter Covariance Matrix
+%   covPn : double, 8 x 8
+%        Normalized Covariance Matrix
+%   sel : logic, 8 x 1
+%        Selected (active) parameters X
+%   vaf : double, 1 x 1
+%        Variance Acounted For, percentage
+%   y : double, n x 2
+%       Parametric model roll and steering output, time series
+%   C : transfer function, 1 x 2
+%       Rider controller without time delay and neuromuscular delay
+%   K : transfer function, 1 x 2
+%       Rider controller with time delay and neuromuscular delay
+%   ...
+%   ... and some less interesting stuff ...
+%
 
     % Load initial parameters
     % Preallocating some field names (prevents trouble)
