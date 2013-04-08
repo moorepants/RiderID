@@ -1,5 +1,20 @@
 function fig = resfig(npm,dat,set,i,T)
-
+% function fig = resfig(npm,dat,set,i,T)
+%
+% Returns a figure with the measured and non parametric time series. 
+%
+% Parameters
+% ----------
+% npm ; structure with nonparametric data
+% dat ; structure with time domain data
+% set ; structure with measurement settings
+% i ; integer 1 x 1, measurement number
+% T ; double 2 x 1, time span [T_start, T_end]
+%
+% Returns
+% -------
+% fig ; handle to figure object
+%
 
     if isnan(T);
         T = [dat.t(1) dat.t(end)];

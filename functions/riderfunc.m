@@ -1,4 +1,26 @@
 function [mod] = riderfunc(X,s,j,mod)
+% function [mod] = riderfunc(X,s,j,mod)
+%
+% Adds a rider model to the model structure
+% 
+% Parameters
+% ----------
+% X    : double, 1 x 8
+%   	 Model parameters
+% s    : symbol or transfer function, 1 x 1
+%        Laplace operator
+% j    : integer, 1 x 1
+%        Model index
+% mod  : Structure
+%        Structure containing parametric model data. 
+% 
+% Returns
+% -------
+% mod  : Structure
+%        Adds the rider related variables to the model structure,
+%        including: model parameters X, transferfunction C and K, etc.
+%        See also parametricmod.m for more information. 
+%
 
 
     % Declarations/limitations
