@@ -37,14 +37,14 @@ or
 
 $ mkdir RiderID
 $ cd RiderID
-$ wget http://web.figshare.com/download/file/1017753
+$ wget http://files.figshare.com/1018052/rider_id_source.tar.gz
 $ tar -zxf rider-id-source.tar.gz
 
 The data can be obtained from Figshare
 (http://dx.doi.org/10.6084/m9.figshare.659465). Decompress the data file while
 in the source directory.
 
-$ wget http://web.figshare.com/download/file/1017793
+$ wget http://files.figshare.com/1017793/rider_id_measurements.tar.gz
 $ tar -zxf rider-id-measurements.tar.gz
 
 Now open Matlab, set the current working directory as the project folder, and
