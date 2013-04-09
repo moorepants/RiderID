@@ -5,18 +5,19 @@ function H = bikesys(v,datapath)
 %
 % Inputs:
 % - v; forward speed(s) [double, n x 1]
-% - datapath; path to bicycle .mat file (string)
+% - datapath; path to bicycle .mat file [string]
 %
 % Outputs:
-% - H; state space respresentation of the bicycle equations (structure of
-% ss-objects)
+% - H; state space respresentation of the bicycle equations [structure array of
+% ss-objects, n x 1]
 
     load(datapath);
+
     M = roundn(M0,-12);
     H = struct([]);
     g = 9.81;
-    for i = 1:length(v);
 
+    for i = 1:length(v);
 
         C = roundn((C1*v(i)),-12);
         K = roundn((K0*g + K2*v(i)^2),-12);

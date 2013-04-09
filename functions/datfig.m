@@ -5,9 +5,12 @@ function fig = datfig(dat,i,T)
 %
 % Parameters
 % ----------
-% dat :
-% i :
-% T :
+% dat : structure
+%   The data to plot.
+% i : integer
+%   The figure number.
+% T : double, 1 x 2
+%   Start and stop time.
 
     if isnan(T);
         T = [dat.t(1) dat.t(end)];
@@ -24,7 +27,7 @@ function fig = datfig(dat,i,T)
         end
         k = k+1;
     end
-    
+
     figure(i);
     clf;
     subplot(3,1,1);
@@ -40,13 +43,13 @@ function fig = datfig(dat,i,T)
         legend(h,'\phi(t)');
     subplot(3,1,2);
         plot([dat.t(1);dat.t(end)],[0;0],'k:');hold on;
-        h = plot(dat.t,dat.y(:,2),'k'); 
+        h = plot(dat.t,dat.y(:,2),'k');
           % Pulse grid
         ylimit = ylim;
         for k = 1:length(tpulse);
             plot(repmat(dat.t(tpulse(k)),1,2),ylimit',':k');
         end
-        ylabel('angle (rad)'); xlim(T); 
+        ylabel('angle (rad)'); xlim(T);
         legend(h,'\delta(t)');
     subplot(3,1,3);
         plot([dat.t(1);dat.t(end)],[0;0],'k:'); hold on;
@@ -61,5 +64,5 @@ function fig = datfig(dat,i,T)
     xlabel('t (s)');
     sdf('Latex');
     fig.hf = gcf;
-    
+
 end

@@ -1,7 +1,7 @@
 function dav = davisdat(filename)
 % function dav = davisdat(filename)
 %
-% Reformats the .mat data file created from the BicycleDataProcessor into a
+% Reformats the .mat data file created from BicycleDataProcessor into a
 % structure useful for further analyses.
 %
 % Parameters
@@ -58,4 +58,3 @@ function dav = davisdat(filename)
     end
 
 end
-

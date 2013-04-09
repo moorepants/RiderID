@@ -2,7 +2,7 @@ function fir = firestimation(dat)
 % function fir = firestimation(dat)
 %
 % Returns the Finite Impuluse Response (FIR) from time domain data.
-% 
+%
 % Input:
 % - dat; structure which contains the time domain data of a measurement.
 %

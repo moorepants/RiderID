@@ -4,10 +4,10 @@ function [g,tau] = markovparm2(y,u,m1,m2)
 % This is where the non parametric magic happens!
 % Estimates a finite number of Markov parameters g(tau) based on input u
 % and output y. the model is effectively an m*2+1 order FIR model.
-% Since the process enhances an inverse operation, the estimation 
+% Since the process enhances an inverse operation, the estimation
 % may be slow for large datasets. The input u is assumed to be zero outside
 % the measurement scope. This is seemed valid to us, since we have not
-% applied lateral peturbations shortly before and after the measurement. 
+% applied lateral peturbations shortly before and after the measurement.
 %
 % Parameters
 % ----------
@@ -38,9 +38,9 @@ for i = 1:n
     for j = m1:m2
         if (i-j >= 1) && (i-j <= n)
             U(i,j-m1+1) = u(i-j);
-        else 
-            U(i,j-m1+1) = 0;  
-        end 
+        else
+            U(i,j-m1+1) = 0;
+        end
     end
     Y(i,:) = y(i);
 end

@@ -2,7 +2,7 @@ function [mod] = riderfunc(X,s,j,mod)
 % function [mod] = riderfunc(X,s,j,mod)
 %
 % Adds a rider model to the model structure
-% 
+%
 % Parameters
 % ----------
 % X    : double, 1 x 8
@@ -12,14 +12,14 @@ function [mod] = riderfunc(X,s,j,mod)
 % j    : integer, 1 x 1
 %        Model index
 % mod  : Structure
-%        Structure containing parametric model data. 
-% 
+%        Structure containing parametric model data.
+%
 % Returns
 % -------
 % mod  : Structure
 %        Adds the rider related variables to the model structure,
 %        including: model parameters X, transferfunction C and K, etc.
-%        See also parametricmod.m for more information. 
+%        See also parametricmod.m for more information.
 %
 
 
@@ -33,7 +33,7 @@ function [mod] = riderfunc(X,s,j,mod)
     %         z = -0.030*s;
     %         delay = (1+1/2*z+1/12*z^2)/(1-1/2*z+1/12*z^2);
     %     end
-    
+
     % Gain model
     mod.X = X;
     pid = [1;1/s;s;s^2];
@@ -45,7 +45,7 @@ function [mod] = riderfunc(X,s,j,mod)
     %     mod.K = c2d(mod.K,Ts);
     %     mod.G.yu = c2d(mod.G.yu,Ts);
     %     mod.G.yw = c2d(mod.G.yw,Ts);
- 
+
     % Calculate closed loop system responses
     me = []; %#ok<NASGU>
     mod.y =  mod.G.yw + mod.G.yu*((eye(1)-mod.K*mod.G.yu)\mod.K*mod.G.yw);

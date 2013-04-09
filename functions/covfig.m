@@ -5,10 +5,14 @@ function fig = covfig(mod,sat,i,k)
 %
 % Parameters
 % ----------
-% mod :
-% sat :
-% i :
-% k :
+% mod : structure
+%   The parametric model.
+% sat : structure
+%   The settings for this model.
+% i : integer
+%   Model and figure number.
+% k : integer
+%   The parametric model number.
 %
 % Returns
 % -------
@@ -19,12 +23,10 @@ function fig = covfig(mod,sat,i,k)
 
     mod = mod{1};
 
-
     p = sum(mod(k).sel);
     m = length(mod(k).X0);
 
     hold on; box on;
-
 
     s = .8;
     for x=1:m

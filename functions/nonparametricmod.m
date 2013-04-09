@@ -23,7 +23,7 @@ function  [npm] = nonparametricmod(dat,set)
 %   g : double, n x 2
 %       Filtered FIR coefficients, delta time series
 %   g_raw : double, n x 2
-%       Unfiltered (raw) FIR coefficients. delta time series     
+%       Unfiltered (raw) FIR coefficients. delta time series
 %
 
 t = dat.t;

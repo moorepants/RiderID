@@ -1,6 +1,6 @@
 function [mod] = parametricmod(npm,dat,set)
 % function [mod] = parametricmod(npm,dat,set)
-% 
+%
 % Script for parametric fitting the impulse response data.
 %
 % Parameters
@@ -20,7 +20,7 @@ function [mod] = parametricmod(npm,dat,set)
 %   X0 : double, 8 x 1
 %        Initial model parameters
 %   sem : double, 8 x 1
-%        Standard Error of the Mean 
+%        Standard Error of the Mean
 %   covP : double, 8 x 8
 %        Parameter Covariance Matrix
 %   covPn : double, 8 x 8
@@ -46,7 +46,7 @@ function [mod] = parametricmod(npm,dat,set)
 
     % For each model structure
     for j = 1:length(mod);
-        
+
     % Initial parameters based on optimal control theory:
     bike = davisbike(set.v); % Bicycle model from Davis
     % K = optimal(bike); keyboard;
@@ -69,24 +69,24 @@ function [mod] = parametricmod(npm,dat,set)
 %      keyboard;
 
        if sum(mod(j).X0);
-            
+
             % Bike
             mod(j).G.yu =  bike(3:4,2);
             mod(j).G.yw =  bike(3:4,3);
             mod(j).G.zu = -bike(3,2);
             mod(j).G.zw = -bike(3,3);
-            
+
             % Normalizing variables using initial parameter conditions.
             X0 = mod(j).X0;
             X0n = ones(size(X0));
             theta0 = X0(logical(X0));  %#ok<*AGROW>
             theta0n = X0n(logical(X0));  %#ok<*AGROW>
             e0  = norm(errorfunc(theta0n,X0,1,npm,j,mod(j),dat));
-            % Optimize model using the LSQNONLIN algorithm if flag is set to 1        
+            % Optimize model using the LSQNONLIN algorithm if flag is set to 1
             [thetan,resnorm,en,exitflag,output,~,Jn] = ...
                 lsqnonlin(@(thetan)errorfunc(thetan,X0,e0,npm,j,mod(j),dat),...
                   theta0n);
-            
+
             % Unnormalizing output
             e = en.*e0;
             N = length(e);
@@ -94,7 +94,7 @@ function [mod] = parametricmod(npm,dat,set)
             Xn = zeros(size(X0)); Xn(logical(X0)) = thetan;
             X = Xn.*X0;
             theta = thetan.*theta0;
-            
+
             % Optimization output
             mod(j).covP = abs(1/N*(e'*e)*inv(J'*J)); %#ok<MINV>
             mod(j).covPn = full(mod(j).covP)./(theta'*theta);
@@ -104,7 +104,7 @@ function [mod] = parametricmod(npm,dat,set)
             mod(j).output = output;
             mod(j).sel = logical(X0);
 
-            
+
             % Model output
             mod(j).i = j;
             mod(j) = riderfunc(X,tf('s'),j,mod(j));
@@ -113,9 +113,9 @@ function [mod] = parametricmod(npm,dat,set)
             delta = npm.y(:,2);
 
             mod(j).vaf = vaf(delta,delta_mod);
-                        
+
         end
-    end        
+    end
 end
 
 
@@ -123,7 +123,7 @@ end
 function K = optimal(bike) %#ok<DEFNU>
     % Set performance weightning Q and control effort R
     q1max = 0.1; Q33 = 1/q1max^2;
-    T2max = 2.0; R11 = 1/T2max^2;  
+    T2max = 2.0; R11 = 1/T2max^2;
     % Weighting matrices
 %     Q = zeros(6); Q(3,3) = Q33; Q(5,5) = Q33;
     Q = 1*eye(4); Q(3,3) = Q33;

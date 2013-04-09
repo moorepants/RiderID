@@ -1,7 +1,7 @@
 function fig = resfig(npm,dat,set,i,T)
 % function fig = resfig(npm,dat,set,i,T)
 %
-% Returns a figure with the measured and non parametric time series. 
+% Returns a figure with the measured and non parametric time series.
 %
 % Parameters
 % ----------
@@ -31,8 +31,8 @@ function fig = resfig(npm,dat,set,i,T)
         end
         k = k+1;
     end
-    
-    figure(i); clf; 
+
+    figure(i); clf;
     subplot(4,1,1);
     title(['Output decomposition: y(t) = G(q)w(t) + v(t) for v=' num2str(set.v,2) 'm/s']);
         box on; ylabel('angle (rad)');  hold on;
@@ -75,7 +75,5 @@ function fig = resfig(npm,dat,set,i,T)
         legend(h,'w(t)');
     xlabel('time (s)');
     sdf('Latex');
-    
-    
-    
+
     fig.hf = gcf;

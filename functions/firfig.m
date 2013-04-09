@@ -1,7 +1,7 @@
 function fig = firfig(npm,dat,i)
 % function fig = firfig(npm,dat,i)
 %
-% Returns a FIR figure
+% Returns a FIR figure.
 %
 % Parameters
 % ----------

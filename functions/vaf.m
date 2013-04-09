@@ -1,10 +1,10 @@
 function v = vaf(y,y_est)
 % function v = vaf(y,y_est)
-% 
+%
 % Variance Acounted For (VAF)
 %
 % Parameters
-% ---------- 
+% ----------
 % y     : double, n x 1
 %         measured signal (n samples),  time series
 % y_est : double, n x 1
