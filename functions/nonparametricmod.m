@@ -1,5 +1,5 @@
 function  [npm] = nonparametricmod(dat,set)
-% function  [npm,dat] = nonparametricmod(dat,set)
+% function  [npm] = nonparametricmod(dat,set)
 %
 % Parameters
 % ----------

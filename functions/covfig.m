@@ -26,7 +26,6 @@ function fig = covfig(mod,sat,i,k)
     hold on; box on;
 
 
-
     s = .8;
     for x=1:m
         for y = 1:m
@@ -52,10 +51,8 @@ function fig = covfig(mod,sat,i,k)
     set(gca,'XTick',(1:length(mod(k).X))');
         set(gca,'YTick',(1:length(mod(k).X))');
 
-
     sdf('LatexSmall'); xlabel('i'); ylabel('j');
 
     fig.hf = gcf;
 
 end
-

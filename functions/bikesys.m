@@ -1,15 +1,15 @@
-function [H] = bikesys(v,datapath)
-% function sys = bikesys(v,datapath)
+function H = bikesys(v,datapath)
+% function H = bikesys(v,datapath)
 %
-% Outputs a state space model of the bicycle equations
+% Outputs state space models of the bicycle equations for a set of speeds.
 %
 % Inputs:
-% - v; forward speed [double]
-% - g; gravitational acceleration [double]
+% - v; forward speed(s) [double, n x 1]
 % - datapath; path to bicycle .mat file (string)
 %
 % Outputs:
-% - sys; state space respresentation of the bicycle equations (ss-object)
+% - H; state space respresentation of the bicycle equations (structure of
+% ss-objects)
 
     load(datapath);
     M = roundn(M0,-12);

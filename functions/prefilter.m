@@ -39,7 +39,7 @@ function dat = prefilter(raw)
 
     if min(ii)-m <= 1
         i1 = min(ii)+100;
-    else 
+    else
         i1 = 1;
     end
 
@@ -62,7 +62,7 @@ function dat = prefilter(raw)
     w1 = mean(dat.w(1:m));
     w2 = mean(dat.w(end-m:end));
 
-    coef = [1 1; 1 dat.N]\[w1; w2]; 
+    coef = [1 1; 1 dat.N]\[w1; w2];
     f = coef(1) + coef(2)*(1:dat.N)';
     dat.w = w-f;
 

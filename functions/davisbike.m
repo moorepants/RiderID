@@ -13,7 +13,7 @@ function sys = davisbike(v)
     K2 = [   0.0       ,  104.85805076;  0.00000000,   2.29688720];
 
     Hfw = [0.91; 0.014408]; % dfx/dTq
-    
+
     % External parameter;
     g = 9.81;
 
@@ -25,8 +25,7 @@ function sys = davisbike(v)
     C = eye(4);
     D = zeros(4,3);
 
-    
     % Combine A,B,C and D matrices into a state space object.
     sys = ss(A,B,C,D);
-    
+
 end
