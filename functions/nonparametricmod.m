@@ -29,6 +29,7 @@ function  [npm] = nonparametricmod(dat,set)
 t = dat.t;
 N = set.N;
 npm.N = N;
+npm.m = 2^10;
 
 % FIR model of input related noise:
 fir = firestimation(dat); % Finite impulse response
