@@ -48,10 +48,17 @@ $ wget http://files.figshare.com/1017793/rider_id_measurements.tar.gz
 $ tar -zxf rider-id-measurements.tar.gz
 
 Now open Matlab, set the current working directory as the project folder, and
-run the main program to generate the results:
+run the main program to generate the results for the controller identification:
 
 $ matlab
 >> main.m
+
+To generate the optimal control results run:
+
+>> optimalQRv2.m
+
+which reads data from data/ResultsvKFromPeter19dec2012.txt and produces the
+results in Tables.mat.
 
 Data
 ====
