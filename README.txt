@@ -37,7 +37,7 @@ or
 
 $ mkdir RiderID
 $ cd RiderID
-$ wget http://files.figshare.com/1018052/rider_id_source.tar.gz
+$ wget http://files.figshare.com/1019176/rider_id_source.tar.gz
 $ tar -zxf rider-id-source.tar.gz
 
 The data can be obtained from Figshare
