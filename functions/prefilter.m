@@ -1,8 +1,9 @@
 function dat = prefilter(raw)
 % function dat = prefilter(raw)
 %
-% Filters the data from the Davis Experiments. It removes some of the high
-% frequency content on the state signals (y) and selects a range of data.
+% Massages the data from the Davis Experiments. It subtracts the mean of the
+% outputs, subtracts the linear drift from the lateral force, and selects a
+% range of data.
 %
 % Parameters
 % ----------
