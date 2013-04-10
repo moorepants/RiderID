@@ -82,3 +82,11 @@ License
 
 The software and data are licensed under CC-BY 3.0
 (http://creativecommons.org/licenses/by/3.0/).
+
+Citation
+========
+
+The data and source code can use the following citation information:
+
+Bicycle Rider Control Identification.  P.D.L de Lange, Jason Moore. figshare.
+http://dx.doi.org/10.6084/m9.figshare.659465
