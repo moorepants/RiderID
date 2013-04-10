@@ -23,6 +23,11 @@ function fir = firestimation(dat)
     tau = DeltaT*(m1:m2)';
     M = length(tau);
 
+     % FIR windowing
+    shift = 2^6; 
+    win = zeros(size(tau)); win(tau>0) = 1; win(end-shift:end) = 0;
+    win((m2+1:end)-shift) = 1/2*(1+cos((0:-m1)*pi/(-m1))); 
+
     % datter parameters
     [b, a] = butter(4,wn);
 
